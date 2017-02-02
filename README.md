@@ -1,3 +1,3 @@
 # python
 
-Examples scripts for python
+Python example scripts
