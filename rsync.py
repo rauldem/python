@@ -7,7 +7,7 @@
 # Version            : 1.0
 # Modifications      :
 
-# Description        : Directory Synchronization
+# Description        : Directories Synchronization
 '''
 
 import os
