@@ -44,7 +44,8 @@ destino = configurapath(destino)
 if chequearuta(destino) == "False":
     exit(1)        # break
 
-comando1 = 'rsync --av --delete ' + origen +' ' + destino + ' >> /tmp/rysnc.' + fecha + '.log'
+comando1 = 'rsync -av --delete ' + origen +' ' + destino + ' --log-file=/tmp/rsync.' + fecha + '.log'
 comando2 = shlex.split(comando1)
-print("Ejecutando comando " + comando2)
+mensaje = "Ejecutando comando:     (" + str(comando1) + ")"
+print(mensaje)
 subprocess.call(comando2)
