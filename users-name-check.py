@@ -7,7 +7,9 @@
 # Version            : 1.0
 # Modifications      :
 
-# Description        : Check rules for create new users 
+# Description        : Check rules for create new users
+#                       user name > 6 characters and < 12
+#                       Alphanumeric
 '''
 
 condicion = 0
@@ -17,9 +19,7 @@ while condicion == 0:
     # User name request
     print("Por favor indicanos el nombre de usuario que quieres crear")
     nombre = input("Nombre usuario: ")
-    
-    condicion = 1
-    
+
     # Between 6 and 12 characters
     if len(nombre) < 6:
         print("Debe especificar un tamano mayor de seis caracteres")
@@ -33,3 +33,4 @@ while condicion == 0:
         condicion = 0
     else:
         print("El nombre de usuario " + nombre + " cumple todas las normativas")
+        condicion = 1
