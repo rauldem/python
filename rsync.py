@@ -7,16 +7,15 @@
 # Version            : 1.0
 # Modifications      :
 
-# Description        : Directories Synchronization
+# Description        : Directory Synchronization
 '''
 
 import os
 import shlex, subprocess
 import time
 
-#fecha    = datetime.date.today()        # Get Today's date
 fecha = time.strftime('%Y%m%d%H%M%S')   #in the format YYYYMMDDHHMMSS
-  
+
 def configurapath(ruta):
     tamano = len(ruta)
     if ruta[tamano - 1] != "/":
@@ -24,8 +23,8 @@ def configurapath(ruta):
     return ruta
 
 def chequearuta(ruta):
-    if not os.path.exists(ruta):         # if not os.path.isdir(ruta)
-        print("La ruta indicada " + ruta + " no existe")
+    if not os.path.exists(ruta):
+        print("La ruta indicada no existe:    " + ruta)
         #os.mkdir(ruta)
         return "False"
     else:
@@ -44,8 +43,8 @@ destino = configurapath(destino)
 if chequearuta(destino) == "False":
     exit(1)        # break
 
-comando1 = 'rsync -av --delete ' + origen +' ' + destino + ' --log-file=/tmp/rsync.' + fecha + '.log'
-comando2 = shlex.split(comando1)
+comando1 = 'rsync -aq --delete ' + origen +' ' + destino + ' --log-file=/tmp/rsync.' + fecha + '.log'
 mensaje = "Ejecutando comando:     (" + str(comando1) + ")"
+comando2 = shlex.split(comando1)
 print(mensaje)
 subprocess.call(comando2)
